@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Myanmar Farmer</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f6ee;--card:#fff;--ink:#1d2a1a;--mute:#5d6b58;--line:#d3dcc9;--brand:#2f6b2f;--bi:#fff;--warn:#fff3c4;--wi:#5a4600;--err:#a3281f;--me:#dff0d6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121a11;--card:#1b261a;--ink:#e8f0e2;--mute:#9fb097;--line:#2f3f2c;--brand:#7cc57c;--bi:#0f1a0e;--warn:#3a3210;--wi:#f1dc8a;--err:#ff8a80;--me:#26402a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121a11;--card:#1b261a;--ink:#e8f0e2;--mute:#9fb097;--line:#2f3f2c;--brand:#7cc57c;--bi:#0f1a0e;--warn:#3a3210;--wi:#f1dc8a;--err:#ff8a80;--me:#26402a;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans Myanmar","Padauk","Myanmar Text",sans-serif;line-height:1.85;font-size:16px;padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+main{max-width:560px;margin:0 auto;padding:16px}
+h1{font-size:1.35rem;margin:6px 0 2px;line-height:1.6}h2{font-size:1.1rem;margin:0 0 8px}
+.sub{color:var(--mute);margin:0 0 14px;font-size:.92rem}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px}
+label{display:block;font-weight:600;margin:8px 0 4px;font-size:.95rem}
+input,select,textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:9px}
+textarea{min-height:70px}
+.row{display:flex;gap:8px}.row>*{flex:1;min-width:0}
+button{font:inherit;font-weight:700;background:var(--brand);color:var(--bi);border:0;border-radius:12px;padding:12px;cursor:pointer;min-height:48px;width:100%;margin-top:8px}
+button.s{background:transparent;color:var(--brand);border:1px solid var(--brand)}
+button:disabled{opacity:.5}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--brand);outline-offset:2px}
+.pick{display:flex;align-items:center;justify-content:center;min-height:130px;border:2px dashed var(--line);border-radius:12px;cursor:pointer;color:var(--mute);text-align:center;padding:8px;margin:0}
+.pick img{max-width:100%;max-height:240px;border-radius:8px}.pick input{position:absolute;opacity:0;width:1px;height:1px}
+.pre{white-space:pre-wrap;word-break:break-word}
+.warn{background:var(--warn);color:var(--wi);border-radius:12px;padding:10px 12px;font-size:.88rem}
+.err{color:var(--err);font-weight:600}.hide{display:none}
+nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:var(--card);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px);z-index:5}
+nav button{margin:0;border-radius:0;background:transparent;color:var(--mute);font-size:.78rem;min-height:60px;padding:6px 2px;font-weight:600}
+nav button[aria-selected="true"]{color:var(--brand);box-shadow:inset 0 3px 0 var(--brand)}
+.msg{padding:9px 12px;border-radius:14px;margin:6px 0;max-width:92%}.u{background:var(--me);margin-left:auto}.a{background:var(--bg);border:1px solid var(--line)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}.chips button{width:auto;min-height:38px;padding:4px 10px;font-size:.85rem;margin:0;font-weight:600}
+table{width:100%;border-collapse:collapse;font-size:.92rem}td,th{padding:6px 4px;border-bottom:1px solid var(--line);text-align:left}
+.big{font-size:1.2rem;font-weight:700}.brand{display:flex;align-items:center;gap:12px;margin:4px 0 6px}.brand svg{flex:none}.brand h1{margin:0;font-family:Georgia,"Times New Roman",serif;letter-spacing:.2px}.brand small{display:block;color:var(--mute);font-size:.8rem;line-height:1.4}
+</style>
+</head>
+<body>
+<main>
+<div class="brand"><svg width="52" height="52" viewBox="0 0 48 48" role="img" aria-label="MF logo"><rect width="48" height="48" rx="12" fill="var(--brand)"/><path d="M34 7c-9 0-14 5-14 12 7 0 14-4 14-12z" fill="#f2c94c"/><text x="24" y="40" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="21" fill="var(--bi)">MF</text></svg><div><h1>Myanmar Farmer</h1><small>လယ်သမားလက်ထောက်</small></div></div>
+<p class="sub" id="ctx">ကိုယ့်လယ်ကွက်အတွက် အားလုံးတစ်နေရာတည်း</p>
+
+<section id="t0">
+<div class="box"><label for="dc">သီးနှံ</label><select class="crop" id="dc"></select>
+<label class="pick" for="file" id="pick" style="margin-top:10px"><span>ဓာတ်ပုံရိုက်ပါ ဒါမှမဟုတ် ရွေးပါ</span><input id="file" type="file" accept="image/*"></label>
+<label for="note">မှတ်ချက် (မဖြည့်လည်းရ)</label><textarea id="note" placeholder="ဥပမာ - အရွက်ပေါ်မှာ အညိုရောင်အစက် ၃ ရက်ရှိပြီ"></textarea>
+<button id="go" disabled>စစ်ဆေးမယ်</button></div>
+<div class="box hide" id="dres"><div class="pre" id="dout"></div></div>
+</section>
+
+<section id="t1" class="hide">
+<div class="box"><h2>စိုက်ပျိုးရေး မေးဖြေ</h2>
+<div class="chips" id="chips"></div>
+<div id="log" aria-live="polite"></div>
+<textarea id="q" placeholder="မေးခွန်းရိုက်ပါ"></textarea><button id="send">ပို့မယ်</button><button class="s" id="clr">အသစ်စမယ်</button></div>
+</section>
+
+<section id="t2" class="hide">
+<div class="box"><h2>ဈေးနှုန်းမှတ်တမ်း</h2>
+<p class="sub">ကိုယ့်ဒေသဈေးကို ထည့်ထားရင် ဈေးအတက်အကျကို ခြေရာခံနိုင်ပြီး မေးဖြေဆီမှာလည်း သုံးပါတယ်။</p>
+<label for="pc">သီးနှံ</label><select class="crop" id="pc"></select>
+<div class="row"><div><label for="pp">ဈေး (ကျပ်)</label><input id="pp" type="number" inputmode="numeric"></div><div><label for="pu">ယူနစ်</label><input id="pu" value="ပိဿာ"></div></div>
+<label for="pl">ဈေးကွက်/မြို့</label><input id="pl"><button id="padd">မှတ်မယ်</button></div>
+<div class="box"><div id="plist"></div></div>
+<div class="box"><h2>အမြတ်တွက်</h2>
+<p class="sub" id="parea"></p>
+<div class="row"><div><label for="py">အထွက် / ဧက</label><input id="py" type="number" inputmode="decimal"></div><div><label for="pq">ရောင်းဈေး / ယူနစ်</label><input id="pq" type="number" inputmode="numeric"></div></div>
+<p class="sub" style="margin:8px 0 0">ကုန်ကျစရိတ် / ဧက (ကျပ်)</p>
+<div class="row"><input class="cost" placeholder="မျိုးစေ့" type="number"><input class="cost" placeholder="မြေဩဇာ" type="number"></div>
+<div class="row" style="margin-top:6px"><input class="cost" placeholder="ဆေး" type="number"><input class="cost" placeholder="လုပ်ခ" type="number"></div>
+<div class="row" style="margin-top:6px"><input class="cost" placeholder="ဆီ" type="number"><input class="cost" placeholder="အခြား" type="number"></div>
+<button id="pcalc">တွက်မယ်</button><div id="pres" class="pre" style="margin-top:8px"></div></div>
+</section>
+
+<section id="t3" class="hide">
+<div class="box"><h2>မြေဧက တိုင်းတာ</h2>
+<label for="ul">အလျား</label><div class="row"><input id="ul" type="number" inputmode="decimal"><select id="uu"><option value="0.3048">ပေ</option><option value="1">မီတာ</option><option value="0.9144">ကိုက်</option></select></div>
+<label for="uw">အနံ</label><input id="uw" type="number" inputmode="decimal">
+<button id="ucalc">တွက်မယ်</button></div>
+<div class="box"><h2>ဖုန်း GPS နဲ့ ကွက်ပတ်လမ်းလျှောက်</h2>
+<p class="sub">လယ်ကွက်ရဲ့ ထောင့်တစ်ခုစီမှာရပ်ပြီး နှိပ်ပါ (အနည်းဆုံး ၃ ထောင့်)။ GPS အမှား ၅-၁၅ မီတာရှိနိုင်လို့ ကွက်ကြီးမှ ပိုမှန်ပါတယ်။</p>
+<button id="gadd" class="s">ဒီနေရာကို မှတ်မယ်</button><p id="gcount" class="sub"></p><button id="gcalc">ဧရိယာတွက်မယ်</button><button id="greset" class="s">ပြန်စ</button></div>
+<div class="box"><h2>ရလဒ်</h2><div id="ures" class="pre">ဧက - </div>
+<label for="uac">ဧကကို တိုက်ရိုက်ထည့်လည်းရ</label><input id="uac" type="number" inputmode="decimal"><button id="usave">ကိုယ့်လယ်အဖြစ် သိမ်းမယ်</button></div>
+</section>
+
+<section id="t4" class="hide">
+<div class="box"><h2>လယ်စာရင်း</h2><p class="sub">ဝင်ငွေ၊ ကုန်ကျစရိတ်ကို နေ့စဉ်မှတ်ပါ။ ဖုန်းထဲမှာပဲ သိမ်းထားတာမို့ CSV ထုတ်ပြီး သိမ်းထားပါ။</p>
+<div class="row"><div><label for="lt">အမျိုးအစား</label><select id="lt"><option value="out">ကုန်ကျ</option><option value="in">ဝင်ငွေ</option></select></div><div><label for="lc">အကြောင်းအရာ</label><select id="lc"></select></div></div>
+<label for="lcr">သီးနှံ</label><select class="crop" id="lcr"></select>
+<label for="la">ပမာဏ (ကျပ်)</label><input id="la" type="number" inputmode="numeric">
+<label for="ln">မှတ်ချက်</label><input id="ln"><button id="ladd">မှတ်မယ်</button></div>
+<div class="box"><div id="lsum" class="pre big"></div><div id="llist" style="margin-top:8px"></div><button class="s" id="lexp">CSV ထုတ်မယ်</button><p id="lmsg" class="sub"></p></div>
+</section>
+<p class="warn">AI ရဲ့ အဖြေတွေက ခန့်မှန်းချက်ဖြစ်ပါတယ်။ ဆေး၊ မြေဩဇာ၊ ရင်းနှီးမြှုပ်နှံမှု မလုပ်ခင် စိုက်ပျိုးရေးဦးစီးဌာန သို့မဟုတ် ဒေသခံပညာရှင်နဲ့ အတည်ပြုပါ။ ဈေးနှုန်းတွေကို ကိုယ့်ဒေသဈေးကွက်မှာ ကိုယ်တိုင်စစ်ပါ။</p>
+</main>
+<nav role="tablist" id="nav"></nav>
+
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var CROPS=['စပါး','ပြောင်းဖူး','ပဲစင်းငုံ','ပဲနီစေ့','ပဲတီစိမ်း','မတ်ပဲ','ပဲပုတ်','ကြက်သွန်နီ','ကြက်သွန်ဖြူ','ငရုတ်သီး','ခရမ်းချဉ်သီး','အာလူး','နှမ်း','မြေပဲ','နေကြာ','ဝါ','ကြံ','ရော်ဘာ','ကော်ဖီ','ထောပတ်သီး','သစ်သီးဝလံ','ဟင်းသီးဟင်းရွက်','အခြား'];
+var TABS=['ပင်ရောဂါစစ်','မေးဖြေ','ဈေးနှုန်း','မြေဧက','လယ်စာရင်း'];
+var st={ac:0,prices:[],led:[]};
+try{var s=JSON.parse(localStorage.getItem('lt')||'{}');if(s.ac)st.ac=s.ac;if(s.prices)st.prices=s.prices;if(s.led)st.led=s.led}catch(e){}
+function save(){try{localStorage.setItem('lt',JSON.stringify(st))}catch(e){}}
+function fmt(n){return Number(n).toLocaleString('en-US',{maximumFractionDigits:2})}
+function ctx(){$('ctx').textContent=st.ac?'ကိုယ့်လယ်: '+fmt(st.ac)+' ဧက':'ကိုယ့်လယ်လုပ်ငန်း အားလုံးတစ်နေရာတည်း';$('parea').textContent=st.ac?'ကိုယ့်လယ်: '+fmt(st.ac)+' ဧက (မြေဧကမှာ ပြင်လို့ရ)':'မြေဧကမှာ ဧက သတ်မှတ်ထားရင် စုစုပေါင်းပါ တွက်ပေးမယ်'}
+document.querySelectorAll('.crop').forEach(function(sel){CROPS.forEach(function(c){var o=document.createElement('option');o.textContent=c;sel.appendChild(o)})});
+
+/* tabs */
+TABS.forEach(function(t,i){var b=document.createElement('button');b.textContent=t;b.setAttribute('role','tab');b.onclick=function(){show(i)};$('nav').appendChild(b)});
+function show(n){for(var i=0;i<5;i++){$('t'+i).classList.toggle('hide',i!==n);$('nav').children[i].setAttribute('aria-selected',i===n)}window.scrollTo(0,0)}
+show(0);ctx();
+
+/* AI */
+var sample=null,lim=null;
+function getS(){if(sample)return Promise.resolve(sample);if(!window.claude||!claude.use)return Promise.resolve(null);
+return claude.use('sample').then(function(s){sample=s;return s}).catch(function(){return null})}
+getS();
+function aiErr(e){var c=e&&e.code;return c==='not_granted'?'ခွင့်ပြုချက် မပေးထားပါ။ ပြန်စမ်းပြီး ခွင့်ပြုပါ။':c==='rate_limited'?'အသုံးများနေပါတယ်။ ခဏစောင့်ပါ။':'အဆင်မပြေပါ။ ပြန်စမ်းပါ။'}
+var SYS='သင်က မြန်မာနိုင်ငံက လယ်သမားတွေကို ကူညီတဲ့ စိုက်ပျိုးရေးအကြံပေးပါ။ ရိုးရှင်းတဲ့ မြန်မာစကားနဲ့ တိုတိုလက်တွေ့ကျကျ ဖြေပါ။ markdown သင်္ကေတ (* # စသည်) မသုံးပါနဲ့။ ဈေးနှုန်း၊ ရာသီဥတု၊ ဥပဒေ အသေးစိတ်ကို မသိရင် မသိဘူးလို့ ပြောပြီး ဒေသခံကို စစ်ခိုင်းပါ။ ဈေးနှုန်းကို မဖန်တီးပါနဲ့။ ဆေးမြေဩဇာပမာဏကို အညွှန်းအတိုင်းသုံးဖို့ ပြောပါ။ ';
+
+/* disease */
+var blob=null;
+$('file').onchange=function(){var f=this.files[0];if(!f)return;var u=URL.createObjectURL(f),im=new Image();
+im.onload=function(){var m=1024,k=Math.min(1,m/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);c.getContext('2d').drawImage(im,0,0,c.width,c.height);
+c.toBlob(function(b){URL.revokeObjectURL(u);blob=b;var p=$('pick'),i2=document.createElement('img');i2.src=URL.createObjectURL(b);i2.alt='ပုံ';var inp=$('file');p.innerHTML='';p.appendChild(i2);p.appendChild(inp);$('go').disabled=false},'image/jpeg',.82)};im.src=u};
+function dout(t,e){$('dres').classList.remove('hide');$('dout').className='pre'+(e?' err':'');$('dout').textContent=t}
+$('go').onclick=async function(){var b=this;b.disabled=true;b.textContent='စစ်နေပါတယ်...';
+try{var s=await getS();if(!s){dout('AI မရနိုင်ပါ။ claude.ai ထဲမှာဖွင့်ပါ။',1);return}
+lim=lim||await s.limits();if(!lim.images){dout('ဒီနေရာမှာ ပုံဖတ်လို့မရပါ။',1);return}
+var n=$('note').value.trim();
+var p=SYS+'ပူးတွဲပါပုံက '+$('dc').value+' အပင်ပုံ။ '+(n?'မှတ်ချက်: '+n+'။ ':'')+'ဒီပုံစံနဲ့ဖြေပါ။\n\nဖြစ်နိုင်ခြေရှိတဲ့ ရောဂါ (၂ ခုအထိ၊ သေချာမှု အနိမ့်/အလယ်/အမြင့်)\nတွေ့ရတဲ့ လက္ခဏာ\nအခုလုပ်သင့်တာ\nကာကွယ်နည်း\nပုံမရှင်းရင် ဘာထပ်ရိုက်ရမလဲ\n\nပုံထဲမှာ အပင်မပါရင် ပြောပါ။ မသေချာရင် မသေချာဘူးလို့ပြောပါ။';
+var r=await s(p,{images:[blob],cache:false,onText:function(o){dout(o.text)}});dout(r.text)}
+catch(e){dout(aiErr(e),1)}finally{b.disabled=false;b.textContent='စစ်ဆေးမယ်'}};
+
+/* chat */
+var hist=[];
+['ဘယ်သီးနှံ အမြတ်ရနိုင်မလဲ','ယူရီးယားလျှော့သုံးနည်း','မြေစစ်ဆေးနည်း','စပါးဈေးကျရင် ဘာလုပ်မလဲ'].forEach(function(t){var b=document.createElement('button');b.textContent=t;b.onclick=function(){$('q').value=t;$('send').click()};$('chips').appendChild(b)});
+function bub(cls,t){var d=document.createElement('div');d.className='msg pre '+cls;d.textContent=t;$('log').appendChild(d);return d}
+function pctx(){var l=st.prices.slice(-8).map(function(x){return x.c+' '+x.p+'ကျပ်/'+x.u+' ('+x.l+')'}).join('; ');return (st.ac?'လယ်ဧက '+st.ac+' ဧက။ ':'')+(l?'သူမှတ်ထားတဲ့ ဈေးများ: '+l+'။ ':'')}
+$('send').onclick=async function(){var q=$('q').value.trim();if(!q)return;var b=this;b.disabled=true;$('q').value='';bub('u',q);var a=bub('a','...');
+var m=hist.slice(-10).concat([{role:'user',content:SYS+pctx()+'\n\nမေးခွန်း: '+q}]);
+try{var s=await getS();if(!s){a.textContent='AI မရနိုင်ပါ။';return}
+var r=await s(m,{cache:false,onText:function(o){a.textContent=o.text}});a.textContent=r.text;hist.push({role:'user',content:q},{role:'assistant',content:r.text})}
+catch(e){a.textContent=aiErr(e);a.classList.add('err')}finally{b.disabled=false;$('log').lastChild.scrollIntoView({block:'nearest'})}};
+$('clr').onclick=function(){hist=[];$('log').innerHTML=''};
+
+/* prices */
+function plist(){var el=$('plist');el.innerHTML='';if(!st.prices.length){el.textContent='ဈေးမှတ်တမ်း မရှိသေးပါ။';return}
+var t=document.createElement('table');
+for(var i=st.prices.length-1;i>=0&&i>st.prices.length-16;i--){(function(i){var x=st.prices[i],prev=null;for(var j=i-1;j>=0;j--){if(st.prices[j].c===x.c&&st.prices[j].u===x.u){prev=st.prices[j];break}}
+var d=prev?(x.p-prev.p):0,arrow=prev?(d>0?' ▲ '+fmt(d):d<0?' ▼ '+fmt(-d):' -'):'';
+var tr=document.createElement('tr'),td=document.createElement('td');td.textContent=x.c+' '+fmt(x.p)+' /'+x.u+arrow+(x.l?' - '+x.l:'')+' ('+x.d+')';
+var tb=document.createElement('td'),bt=document.createElement('button');bt.className='s';bt.style.cssText='min-height:34px;padding:2px 8px;margin:0;width:auto';bt.textContent='ဖျက်';bt.setAttribute('aria-label','ဖျက်မယ်');bt.onclick=function(){st.prices.splice(i,1);save();plist()};
+tb.appendChild(bt);tr.appendChild(td);tr.appendChild(tb);t.appendChild(tr)})(i)}el.appendChild(t)}
+$('padd').onclick=function(){var p=parseFloat($('pp').value);if(!p||p<=0){return}
+st.prices.push({c:$('pc').value,p:p,u:$('pu').value||'ယူနစ်',l:$('pl').value.trim(),d:new Date().toLocaleDateString('en-GB')});if(st.prices.length>200)st.prices.shift();save();$('pp').value='';plist()};
+$('pcalc').onclick=function(){var y=parseFloat($('py').value)||0,q=parseFloat($('pq').value)||0,c=0;document.querySelectorAll('.cost').forEach(function(i){c+=parseFloat(i.value)||0});
+var a=st.ac||1,rev=y*q*a,cost=c*a,pr=rev-cost,per=y*q-c;
+$('pres').textContent='ဧက '+fmt(a)+(st.ac?'':' (ဧက မသတ်မှတ်သေး - ၁ ဧကအတွက်)')+'\nဝင်ငွေ: '+fmt(rev)+' ကျပ်\nကုန်ကျ: '+fmt(cost)+' ကျပ်\n'+(pr>=0?'အမြတ်: ':'အရှုံး: ')+fmt(Math.abs(pr))+' ကျပ်\nတစ်ဧကကို: '+fmt(per)+' ကျပ်'+(rev>0?'\nအမြတ်ရာခိုင်နှုန်း: '+fmt(pr/rev*100)+'%':'')+(y&&q?'\nအရှုံးမဖြစ်စေတဲ့ အနည်းဆုံးဈေး: '+fmt(c/y)+' ကျပ်/ယူနစ်':'')};
+plist();
+
+/* area */
+var SQM2AC=1/4046.8564224;
+function showArea(m2){$('ures').textContent='ဧက - '+fmt(m2*SQM2AC)+'\nစတုရန်းမီတာ - '+fmt(m2)+'\nစတုရန်းပေ - '+fmt(m2*10.7639)+'\nဟက်တာ - '+fmt(m2/10000)+'\nစတုရန်းကိုက် - '+fmt(m2*1.19599);$('uac').value=Number((m2*SQM2AC).toFixed(3))}
+$('ucalc').onclick=function(){var f=parseFloat($('uu').value),l=parseFloat($('ul').value),w=parseFloat($('uw').value);if(!l||!w)return;showArea(l*f*w*f)};
+var pts=[];function gc(){$('gcount').textContent='မှတ်ထားတာ '+pts.length+' ထောင့်'}gc();
+$('gadd').onclick=function(){if(!navigator.geolocation){$('gcount').textContent='ဒီဖုန်းမှာ GPS မရပါ။ အလျား၊ အနံနည်းလမ်း သုံးပါ။';return}
+$('gcount').textContent='နေရာရှာနေပါတယ်...';navigator.geolocation.getCurrentPosition(function(p){pts.push([p.coords.latitude,p.coords.longitude]);gc()},function(){$('gcount').textContent='GPS ခွင့်ပြုချက်/အချက်ပြ မရပါ။ အလျား၊ အနံနည်းလမ်း သုံးပါ။'},{enableHighAccuracy:true,timeout:20000})};
+$('greset').onclick=function(){pts=[];gc()};
+$('gcalc').onclick=function(){if(pts.length<3){$('gcount').textContent='အနည်းဆုံး ၃ ထောင့် လိုပါတယ်။';return}
+var la=pts[0][0],lo=pts[0][1],k=Math.cos(la*Math.PI/180),xy=pts.map(function(p){return[(p[1]-lo)*111320*k,(p[0]-la)*110540]}),a=0;
+for(var i=0;i<xy.length;i++){var j=(i+1)%xy.length;a+=xy[i][0]*xy[j][1]-xy[j][0]*xy[i][1]}showArea(Math.abs(a)/2)};
+$('usave').onclick=function(){var v=parseFloat($('uac').value);if(!v||v<=0)return;st.ac=v;save();ctx();$('usave').textContent='သိမ်းပြီး ✓';setTimeout(function(){$('usave').textContent='ကိုယ့်လယ်အဖြစ် သိမ်းမယ်'},1500)};
+/* ledger */
+['မျိုးစေ့','မြေဩဇာ','ဆေး','လုပ်ခ','ဆီ','စက်/ကိရိယာ','ရောင်းချမှု','အခြား'].forEach(function(c){var o=document.createElement('option');o.textContent=c;$('lc').appendChild(o)});
+function lren(){var I=0,O=0,by={};st.led.forEach(function(x){if(x.t==='in'){I+=x.a;by[x.cr]=(by[x.cr]||0)+x.a}else{O+=x.a;by[x.cr]=(by[x.cr]||0)-x.a}});var pr=I-O,ls=Object.keys(by).map(function(k){return k+': '+(by[k]<0?'-':'+')+fmt(Math.abs(by[k]))});
+$('lsum').textContent='ဝင်ငွေ '+fmt(I)+'\nကုန်ကျ '+fmt(O)+'\n'+(pr<0?'အရှုံး ':'အမြတ် ')+fmt(Math.abs(pr))+' ကျပ်'+(ls.length?'\n\nသီးနှံအလိုက်\n'+ls.join('\n'):'');
+var el=$('llist');el.innerHTML='';if(!st.led.length){el.textContent='မှတ်တမ်း မရှိသေးပါ။';return}var t=document.createElement('table');
+for(var i=st.led.length-1;i>=0&&i>st.led.length-16;i--){(function(i){var x=st.led[i],tr=document.createElement('tr'),td=document.createElement('td'),tb=document.createElement('td'),bt=document.createElement('button');td.textContent=(x.t==='in'?'+':'-')+fmt(x.a)+' '+x.c+' ('+x.cr+')'+(x.n?' - '+x.n:'')+' '+x.d;bt.className='s';bt.style.cssText='min-height:34px;padding:2px 8px;margin:0;width:auto';bt.textContent='ဖျက်';bt.setAttribute('aria-label','ဖျက်မယ်');bt.onclick=function(){st.led.splice(i,1);save();lren()};tb.appendChild(bt);tr.appendChild(td);tr.appendChild(tb);t.appendChild(tr)})(i)}el.appendChild(t)}
+$('ladd').onclick=function(){var a=parseFloat($('la').value);if(!a||a<=0)return;st.led.push({t:$('lt').value,c:$('lc').value,cr:$('lcr').value,a:a,n:$('ln').value.trim(),d:new Date().toLocaleDateString('en-GB')});if(st.led.length>1000)st.led.shift();save();$('la').value='';$('ln').value='';lren()};
+$('lexp').onclick=async function(){if(!st.led.length){$('lmsg').textContent='မှတ်တမ်း မရှိသေးပါ။';return}function e(v){return '"'+String(v).replace(/"/g,'""')+'"'}
+var csv='\ufeff'+'ရက်စွဲ,အမျိုးအစား,သီးနှံ,အကြောင်းအရာ,ပမာဏ,မှတ်ချက်\n'+st.led.map(function(x){return [x.d,x.t==='in'?'ဝင်ငွေ':'ကုန်ကျ',x.cr,x.c,x.a,x.n].map(e).join(',')}).join('\n');
+try{var d=window.claude&&claude.use?await claude.use('downloads'):null;if(!d){$('lmsg').textContent='ဒီနေရာမှာ ဖိုင်သိမ်းလို့မရပါ။ claude.ai ထဲမှာ ဖွင့်ကြည့်ပါ။';return}await d.save({filename:'myanmar-farmer-ledger.csv',data:csv});$('lmsg').textContent='သိမ်းပြီးပါပြီ။'}catch(x){$('lmsg').textContent=(x&&x.code==='declined')?'မသိမ်းဘဲ ပယ်ထားပါတယ်။':'ဖိုင်မထုတ်နိုင်ပါ။ ပြန်စမ်းပါ။'}};
+lren();
+if(st.ac)$('uac').value=st.ac;
+})();
+</script>
+</body>
+</html>
